@@ -1,0 +1,156 @@
+<div class="container">
+  <h1 class="text-center">MSIC - Flickr</h1>
+  <div class="form-group">
+    <input
+      type="search"
+      class="form-control"
+      (keyup)="search($event)"
+      placeholder="Search images"
+    />
+  </div>
+
+  <div class="row">
+    <!-- <div class="col-6 col-md-4 col-xl-3 pb-3 px-2"> -->
+    <!-- <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let image of images"> -->
+    <!-- <div class="col-6 col-md-4 col-xl-3 pb-3 px-2" *ngFor="let image of images">
+      <div
+        class="card image-container"
+        (mouseover)="toggleTitleVisibility(true)"
+        (mouseout)="toggleTitleVisibility(false)"
+      >
+        <a [href]="image.url + '_b.jpg'">
+          <img [src]="image.url + '_m.jpg'" />
+          <h5 *ngIf="showTitle">{{ image.title }}</h5>
+        </a>
+      </div>
+    </div> -->
+
+    <div class="col-6 col-md-4 col-xl-3 pb-3 px-2" *ngFor="let image of images; let i = index">
+        
+      <div class="card image-container"
+            (mouseover)="setHoveredIndex(i)"
+            (mouseout)="setHoveredIndex(null)">                      
+                  
+            <!-- <img [src]="image.url + '_m.jpg'"> -->
+            <lightgallery [settings]="settings">
+              <a [href]="image.url + '_b.jpg'">
+              <img [src]="image.url + '_m.jpg'">            
+            </a>
+            </lightgallery>
+            <h5 *ngIf="hoveredIndex === i">{{ image.title }}</h5>
+          
+        </div>
+
+
+        <!-- <div>
+          <lightgallery>
+            <a [href]="image.url + '_b.jpg'">  </a> 
+          </lightgallery>
+        </div> -->
+    </div>
+      
+
+
+  </div>
+
+ 
+  
+
+  <!-- </div>
+  <div id="mygallery" *ngFor="let image of images">
+    <a href="{{image.url}}_b.jpg"></a>
+    <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+   
+</div> -->
+
+  <!-- <div #container class="masonry-with-flex masonry-with-columns" style="max-height: 1200px" *ngFor="let image of images">
+  <div class="card" class="image-container" (mouseover)="showTitle = true" (mouseout)="showTitle = false">
+    <a href="{{image.url}}_b.jpg" >
+      <img src="{{image.url}}_m.jpg">
+      <p *ngIf="showTitle">{{image.title}}</p>
+    </a>
+  </div>  
+</div> -->
+
+  <div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()"
+  ></div>
+</div>
+<!-- <div class="container">
+    <div class="masonry-with-flex">
+      <div class="masonry-with-columns" style="max-height: 1200px" *ngFor="let image of images">
+        <img src="{{image.url}}_m.jpg" title="{{image.title}}" style="width: 33.3%" />
+      </div>
+    </div>
+  </div> -->
+
+<!-- <div #container class="masonry-with-columns"
+        *ngFor="let image of images"> 
+    <div style="order: 0">
+      <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+    </div>
+    <div style="order: 1">
+      <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+    </div>
+    <div style="order: 2">
+      <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+    </div>
+    </div> -->
+
+<!-- </div> -->
+
+<!-- <div class="container"> ---- functional somewhat
+  <div>
+     <figure *ngFor="let image of images">
+      <figcaption><a href="{{image.url}}_b.jpg"></a></figcaption>
+        <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+     </figure>
+  </div>
+</div> -->
+
+<!-- <div class="grid-wrapper" *ngFor="let image of images">
+	<div class="{{sizes[randomNum]}}">
+		<img src="{{image.url}}_m.jpg">
+	</div>	
+</div> -->
+
+<!-- <div class="masonary_container">
+  <div class="">
+      <div class="masonary_column" *ngFor="let image of images">
+      
+        <div class="masonary_card">
+          <a href="{{image.url}}_b.jpg">
+            <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+          </a>
+        </div>
+      </div>
+    </div>
+</div> -->
+
+<!-- ------------------------------------------------ -->
+<!-- <div class="masonry-grid">
+      <div class="grid-item" *ngFor="let image of images">
+        <div class="card-body">
+          <a href="{{image.url}}_b.jpg">
+            <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+<!-- <section class="my-columns">
+      <div class="masonry-column" *ngFor="let col of images; index as i">
+        <div *ngFor="let image of images | masonry : 5 : i + 1"></div>
+
+      </div>
+    </section> -->
+
+<!-- <div class="box" *ngFor="let image of images">
+    <a href="{{image.url}}_b.jpg">
+      <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+    </a>
+  </div> -->
