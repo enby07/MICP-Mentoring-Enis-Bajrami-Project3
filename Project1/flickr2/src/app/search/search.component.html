@@ -37,7 +37,7 @@
               <img [src]="image.url + '_m.jpg'">            
             </a>
             </lightgallery>
-            <h5 *ngIf="hoveredIndex === i">{{ image.title }}</h5>
+            <h5 *ngIf="hoveredIndex === i">{{ titleTrim(image.title) }}</h5>
           
         </div>
 

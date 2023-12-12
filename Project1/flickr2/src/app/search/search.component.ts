@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   sizes: string[] = ["tall", "wide", "big"];
   randomNum: number = Math.random() * 3;
   showTitle = false;
+ 
 
   hoveredIndex: number | null = null;
 
@@ -26,6 +27,14 @@ export class SearchComponent implements OnInit {
     plugins: [
       lgFullscreen
     ]
+  }
+
+  temp: string;
+  titleTrim(title: string){
+    if(title.length > 30){
+      return title.substring(0, 30);
+    }
+    else return title;
   }
 
   setHoveredIndex(index: number | null): void {
